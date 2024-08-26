@@ -33,6 +33,7 @@ import Degrees from './payload/collections/Degrees'
 import Authors from './payload/collections/Authors'
 import Professors from './payload/collections/Professors'
 import Categories from './payload/collections/Categories'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -127,6 +128,13 @@ export default buildConfig({
   ].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
+    vercelBlobStorage({
+      collections: {
+        [Media.slug]: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
+
     redirectsPlugin({
       collections: ['pages', 'posts'],
       overrides: {
