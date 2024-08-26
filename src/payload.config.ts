@@ -117,8 +117,14 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   collections: [Pages, Posts, Media, Users, Degrees, Authors, Categories, Professors],
-  cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
-  csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
+  cors: [
+    process.env.PAYLOAD_PUBLIC_SERVER_URL,
+    'https://directorio-de-repositorios-de-la-universidad-brizuela-go-s-team.vercel.app/',
+  ].filter(Boolean),
+  csrf: [
+    process.env.PAYLOAD_PUBLIC_SERVER_URL,
+    'https://directorio-de-repositorios-de-la-universidad-brizuela-go-s-team.vercel.app',
+  ].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
     redirectsPlugin({
