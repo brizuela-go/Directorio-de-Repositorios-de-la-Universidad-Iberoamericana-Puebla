@@ -111,11 +111,11 @@ export default async function Post({ params: { slug = '' } }) {
               </DialogDescription>
             </DialogHeader>
             <video autoPlay loop playsInline>
-              <source src={`${process.env.NEXT_PUBLIC_SERVER_URL}/${video!.url}`} />
+              <source src={`${video!.url}`} />
             </video>
           </DialogContent>
         </Dialog>
-        <Link target="_blank" href={`${process.env.NEXT_PUBLIC_SERVER_URL}/${article!.url}`}>
+        <Link target="_blank" href={`${article!.url}`}>
           <Button>
             <File className="h-4 w-4 mr-2" />
             Ver Artículo
